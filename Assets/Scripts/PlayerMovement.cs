@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour {
 
     bool alive = true;
-    
+    public Animator anim;
     [SerializeField] LayerMask groundMask;
     [SerializeField] float jumpSpeed = 1000f;
     public float speed = 5;
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
+            
         }
 
         if (transform.position.y < -5) {
@@ -57,6 +58,12 @@ public class PlayerMovement : MonoBehaviour {
         if (isGrounded)
         {
             rb.AddForce(Vector3.up * jumpSpeed);
+            anim.SetBool("jump", true);
+            Debug.Log("heelo jump");
+        }
+        else
+        {
+            anim.SetBool("jump", false);
         }
         
     }

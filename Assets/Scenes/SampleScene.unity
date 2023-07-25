@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.15
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.503293, g: 0.5611007, b: 0.7075472, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c623b961c9d374cb32e389f185eab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -996,6 +997,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e1e5b18f30e4f5242894960beeed5dd3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 22d1a333543fe4b418e427ffd9f808eb, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e1e5b18f30e4f5242894960beeed5dd3,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e5b18f30e4f5242894960beeed5dd3, type: 3}
 --- !u!1 &1742208202 stripped
@@ -1016,10 +1027,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c623b961c9d374cb32e389f185eab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1742208208}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpSpeed: 30
+  jumpSpeed: 300
   speed: 10
   rb: {fileID: 1742208205}
   horizontalMultiplier: 1.7
@@ -1057,6 +1069,12 @@ Rigidbody:
 --- !u!4 &1742208207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e1e5b18f30e4f5242894960beeed5dd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742208201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1742208208 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: e1e5b18f30e4f5242894960beeed5dd3,
     type: 3}
   m_PrefabInstance: {fileID: 1742208201}
   m_PrefabAsset: {fileID: 0}
