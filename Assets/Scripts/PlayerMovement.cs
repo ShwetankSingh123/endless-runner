@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate()
     {
         if (!alive) return;
+       
 
         Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
@@ -33,6 +34,20 @@ public class PlayerMovement : MonoBehaviour {
     }
     private void Update () {
         horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            anim.SetBool("left", true);
+        }else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            anim.SetBool("right", true);
+        }
+        else
+        {
+            anim.SetBool("left", false);
+            anim.SetBool("right", false);
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
