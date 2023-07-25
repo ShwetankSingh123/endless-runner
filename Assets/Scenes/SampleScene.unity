@@ -1031,7 +1031,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpSpeed: 20
+  jumpSpeed: 250
   speed: 10
   rb: {fileID: 1742208205}
   horizontalMultiplier: 1.7

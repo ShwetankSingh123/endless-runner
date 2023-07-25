@@ -34,8 +34,9 @@ public class PlayerMovement : MonoBehaviour {
     private void Update () {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            anim.SetBool("jump", true);
             Jump();
 
         }
@@ -49,13 +50,13 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             anim.SetBool("slide", true);
-            cc.height = 1.12f;
+            
             Debug.Log("ctrl pressed");
         }
         else
         {
             anim.SetBool("slide", false);
-            cc.height = 1.814969f;
+            
             Debug.Log("ctrl not pressed");
         }
 
@@ -82,10 +83,10 @@ public class PlayerMovement : MonoBehaviour {
     {
         float height = GetComponent<Collider>().bounds.size.y;
         bool isGrounded = Physics.Raycast(transform.position,Vector3.down,(height/2)+0.1f,groundMask);
-        if (isGrounded)
+        if (isGrounded && anim.GetBool("jump"))
         {
             rb.AddForce(Vector3.up * jumpSpeed);
-            anim.SetBool("jump", true);
+            
             Debug.Log("heelo jump");
         }
         
