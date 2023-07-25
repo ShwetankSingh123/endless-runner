@@ -31,10 +31,17 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
+
+        }
+        else
+        {
+            
+                anim.SetBool("jump", false);
             
         }
 
         if (transform.position.y < -5) {
+            anim.SetBool("fallDead", true);
             Die();
         }
 	}
@@ -42,6 +49,7 @@ public class PlayerMovement : MonoBehaviour {
     public void Die ()
     {
         alive = false;
+        anim.SetBool("dead", true);
         // Restart the game
         Invoke("Restart", 2);
     }
@@ -61,10 +69,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("jump", true);
             Debug.Log("heelo jump");
         }
-        else
-        {
-            anim.SetBool("jump", false);
-        }
+        
         
     }
 
