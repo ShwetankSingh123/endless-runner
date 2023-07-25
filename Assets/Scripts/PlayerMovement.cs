@@ -9,11 +9,17 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] float jumpSpeed = 1000f;
     public float speed = 5;
     [SerializeField] Rigidbody rb;
-
+    CapsuleCollider cc;
     float horizontalInput;
     [SerializeField] float horizontalMultiplier = 2;
 
     public float speedIncreasePerPoint = 0.1f;
+
+
+    private void Start()
+    {
+        cc = GetComponent<CapsuleCollider>();
+    }
 
     private void FixedUpdate()
     {
@@ -40,6 +46,19 @@ public class PlayerMovement : MonoBehaviour {
             
         }
 
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            anim.SetBool("slide", true);
+            cc.height = 1.12f;
+            Debug.Log("ctrl pressed");
+        }
+        else
+        {
+            anim.SetBool("slide", false);
+            cc.height = 1.814969f;
+            Debug.Log("ctrl not pressed");
+        }
+
         if (transform.position.y < -5) {
             anim.SetBool("fallDead", true);
             Die();
@@ -51,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
         alive = false;
         anim.SetBool("dead", true);
         // Restart the game
-        Invoke("Restart", 2);
+        Invoke("Restart", 1);
     }
 
     void Restart ()
