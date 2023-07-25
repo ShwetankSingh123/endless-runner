@@ -19,7 +19,7 @@ public class GroundTile : MonoBehaviour {
     public void SpawnObstacle ()
     {
         // Choose a random point to spawn the obstacle
-        int obstacleSpawnIndex = Random.Range(2, 5);
+        int obstacleSpawnIndex = Random.Range(2, 6);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
 
         // Spawn the obstace at the position
