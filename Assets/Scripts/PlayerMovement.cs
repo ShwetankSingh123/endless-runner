@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     CapsuleCollider cc;
     float horizontalInput;
     [SerializeField] float horizontalMultiplier = 2;
-
+    [SerializeField] GameObject panel;
     public float speedIncreasePerPoint = 0.1f;
 
 
@@ -86,13 +86,11 @@ public class PlayerMovement : MonoBehaviour {
         alive = false;
         anim.SetBool("dead", true);
         // Restart the game
-        Invoke("Restart", 1);
+        panel.SetActive(true);
+        //Invoke("Restart", 1);
     }
 
-    void Restart ()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    
 
     void Jump()
     {
